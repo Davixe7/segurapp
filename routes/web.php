@@ -14,8 +14,18 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/hello', function () {
-    return Inertia::render('Welcome', [
+Route::group(['middleware'=>'auth'], function () {
+    Route::get('home', function(){
+        return Inertia::render('Home', [
+            'user' => 'David Guilarte'
+        ]);
+    });
+});
+
+Route::get('/login', function(){
+    return Inertia::render('Login', [
         'user' => 'David Guilarte'
     ]);
 });
+
+Route::inertia('visits/create', 'CreateVisit');
