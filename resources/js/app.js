@@ -1,7 +1,7 @@
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 
-import { Quasar } from 'quasar'
+import { Quasar, Notify } from 'quasar'
 import quasarLang from 'quasar/lang/es'
 import quasarIconSet from 'quasar/icon-set/material-symbols-outlined'
 
@@ -23,7 +23,7 @@ createInertiaApp({
     createApp({ render: () => h(App, props) })
       .use(plugin)
       .use(Quasar, {
-        plugins: {}, // import Quasar plugins and add here
+        plugins: {Notify}, // import Quasar plugins and add here
         lang: quasarLang,
         iconSet: quasarIconSet,
         /*

@@ -3,7 +3,7 @@
         <QList bordered>
             <QItem>
                 <QItemSection>
-                    <div class="text-subtitle1 font-weight-medium">Visitas</div>
+                    <div class="text-subtitle1 font-weight-medium">Visitas | {{user.name}}</div>
                 </QItemSection>
                 <QItemSection top side>
                     <div class="text-grey q-gutter-xs">

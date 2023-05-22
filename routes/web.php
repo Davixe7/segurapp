@@ -15,17 +15,18 @@ use Inertia\Inertia;
 */
 
 Route::group(['middleware'=>'auth'], function () {
-    Route::get('home', function(){
-        return Inertia::render('Home', [
-            'user' => 'David Guilarte'
-        ]);
-    });
+    Route::inertia('home', 'Home', ['user'=>auth()->user()]);
+    Route::resource('apartments', App\Http\Controllers\ApartmentController::class);
+    Route::resource('residents', App\Http\Controllers\ResidentController::class);
+    Route::resource('vehicles', App\Http\Controllers\VehicleController::class);
+    Route::resource('visits', App\Http\Controllers\VisitController::class);
+    Route::resource('porterias', App\Http\Controllers\PorteriaController::class);
+    Route::resource('complaints', App\Http\Controllers\ComplaintController::class);
+    Route::resource('reports', App\Http\Controllers\ReportController::class);
+    Route::resource('posts', App\Http\Controllers\PostController::class);
+    Route::resource('bills', App\Http\Controllers\BillController::class);
+
+    Route::resource('residences', App\Http\Controllers\ResidenceController::class);
 });
 
-Route::get('/login', function(){
-    return Inertia::render('Login', [
-        'user' => 'David Guilarte'
-    ]);
-});
-
-Route::inertia('visits/create', 'CreateVisit');
+Route::inertia('/login', 'Login');
